@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace RaceWinners.Models
 {
@@ -16,5 +17,36 @@ namespace RaceWinners.Models
         /// group placed 4th overall.  
         /// </summary>
         public List<int> Ranks { get; set; }
+
+        public double CalculateAverage()
+        {
+            List<int> newRanks = Ranks;
+            double average;
+            
+            foreach (int rank in Ranks)
+            {
+                if (rank < 3)
+                {
+                    newRanks.Add(rank);
+                    newRanks.Add(rank);
+                    newRanks.Add(rank);
+                }
+                else if (rank > 3 && rank < 11)
+                {
+                    newRanks.Add(rank);
+                }
+            }
+
+            return newRanks.Average();
+        }
+        
+        
+
+        // 1-3 = 3, 4-10 = 2, rest = 1
+        /*
+         * 1, 3, 6, 30
+         * 1, 1, 1, 3, 3, 3, 6, 6, 30
+         * 
+         */
     }
 }

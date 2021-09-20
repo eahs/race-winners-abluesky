@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using RaceWinners.Models;
 
 namespace RaceWinners
 {
@@ -12,6 +15,8 @@ namespace RaceWinners
             // Asynchronously retrieve the group (class) data
             var data = await ds.GetGroupRanksAsync();
 
+            
+
             for (int i = 0; i < data.Count; i++)
             {
                 // Combine the ranks to print as a list
@@ -19,6 +24,8 @@ namespace RaceWinners
                 
                 Console.WriteLine($"{data[i].Name} - [{ranks}]");
             }
+            
+            Console.WriteLine(data[0].CalculateAverage());
         }
     }
 }
