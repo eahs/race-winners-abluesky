@@ -10,12 +10,19 @@ namespace RaceWinners
     {
         static async Task Main(string[] args)
         {
+            /*
+            * TO DO:
+            * - input data
+            * - decide winners
+            * - print it all out nicely
+            */
+            
             DataService ds = new DataService();
  
             // Asynchronously retrieve the group (class) data
             var data = await ds.GetGroupRanksAsync();
 
-            
+            Group g = data[0];
 
             for (int i = 0; i < data.Count; i++)
             {
@@ -24,8 +31,8 @@ namespace RaceWinners
                 
                 Console.WriteLine($"{data[i].Name} - [{ranks}]");
             }
-            
-            Console.WriteLine(data[0].CalculateAverage());
+
+            Console.WriteLine(g.CalculateAverage());
         }
     }
 }

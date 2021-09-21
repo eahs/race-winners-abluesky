@@ -20,9 +20,8 @@ namespace RaceWinners.Models
 
         public double CalculateAverage()
         {
-            List<int> newRanks = Ranks;
-            double average;
-            
+            List<int> newRanks = new List<int>();
+
             foreach (int rank in Ranks)
             {
                 if (rank < 3)
@@ -31,7 +30,12 @@ namespace RaceWinners.Models
                     newRanks.Add(rank);
                     newRanks.Add(rank);
                 }
-                else if (rank > 3 && rank < 11)
+                else if (rank is > 3 and < 11)
+                {
+                    newRanks.Add(rank);
+                    newRanks.Add(rank);
+                }
+                else
                 {
                     newRanks.Add(rank);
                 }
