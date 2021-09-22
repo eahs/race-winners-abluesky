@@ -27,18 +27,22 @@ namespace RaceWinners
             double classD = data[3].CalculateAverage();
 
             List<double> averages = new List<double> {classA, classB, classC, classD};
-            averages.Sort();
+            List<double> averagesSorted = new List<double> {classA, classB, classC, classD};
+            averagesSorted.Sort();
 
+            /*
             foreach (double average in averages)
             {
                 Console.WriteLine(average);
             }
-
+            */
+            
             for (int i = 0; i < data.Count; i++)
             {
                 // Combine the ranks to print as a list
                 var ranks = String.Join(", ", data[i].Ranks);
-                
+                double place = averagesSorted.IndexOf(averages[i]);
+
                 Console.WriteLine($"{data[i].Name} - [{ranks}]");
             }
 
