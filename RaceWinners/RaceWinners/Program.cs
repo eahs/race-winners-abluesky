@@ -12,7 +12,6 @@ namespace RaceWinners
         {
             /*
             * TO DO:
-            * - input data
             * - decide winners
             * - print it all out nicely
             */
@@ -22,7 +21,12 @@ namespace RaceWinners
             // Asynchronously retrieve the group (class) data
             var data = await ds.GetGroupRanksAsync();
 
-            Group g = data[0];
+            double classA = data[0].CalculateAverage();
+            double classB = data[1].CalculateAverage();
+            double classC = data[2].CalculateAverage();
+            double classD = data[3].CalculateAverage();
+            
+            
 
             for (int i = 0; i < data.Count; i++)
             {
@@ -32,7 +36,7 @@ namespace RaceWinners
                 Console.WriteLine($"{data[i].Name} - [{ranks}]");
             }
 
-            Console.WriteLine(g.CalculateAverage());
+            //Console.WriteLine(g.CalculateAverage());
         }
     }
 }
