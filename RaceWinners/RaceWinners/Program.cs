@@ -43,7 +43,7 @@ namespace RaceWinners
                 var ranks = String.Join(", ", data[i].Ranks);
                 double place = averagesSorted.IndexOf(averages[i]);
 
-                Console.WriteLine($"{data[i].Name} - [{ranks}]");
+                Console.WriteLine($"{data[i].Name} - Place #{place + 1} - [{ranks}]");
             }
 
             //Console.WriteLine(g.CalculateAverage());
