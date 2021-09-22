@@ -18,6 +18,8 @@ namespace RaceWinners.Models
         /// </summary>
         public List<int> Ranks { get; set; }
 
+        //public double Average;
+
         public double CalculateAverage()
         {
             List<int> newRanks = new List<int>();
@@ -29,8 +31,15 @@ namespace RaceWinners.Models
                     newRanks.Add(rank);
                     newRanks.Add(rank);
                     newRanks.Add(rank);
+                    newRanks.Add(rank);
                 }
-                else if (rank is > 3 and < 11)
+                else if (rank is > 3 and < 16)
+                {
+                    newRanks.Add(rank);
+                    newRanks.Add(rank);
+                    newRanks.Add(rank);
+                }
+                else if (rank is > 15 and < 31)
                 {
                     newRanks.Add(rank);
                     newRanks.Add(rank);

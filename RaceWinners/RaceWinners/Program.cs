@@ -25,8 +25,14 @@ namespace RaceWinners
             double classB = data[1].CalculateAverage();
             double classC = data[2].CalculateAverage();
             double classD = data[3].CalculateAverage();
-            
-            
+
+            List<double> averages = new List<double> {classA, classB, classC, classD};
+            averages.Sort();
+
+            foreach (double average in averages)
+            {
+                Console.WriteLine(average);
+            }
 
             for (int i = 0; i < data.Count; i++)
             {
