@@ -18,8 +18,7 @@ namespace RaceWinners.Models
         /// </summary>
         public List<int> Ranks { get; set; }
 
-        //public double Average;
-
+        // Calculate and return the weighted average
         public double CalculateAverage()
         {
             List<int> newRanks = new List<int>();
@@ -53,13 +52,5 @@ namespace RaceWinners.Models
             return newRanks.Average();
         }
         
-        
-
-        // 1-3 = 3, 4-10 = 2, rest = 1
-        /*
-         * 1, 3, 6, 30
-         * 1, 1, 1, 3, 3, 3, 6, 6, 30
-         * 
-         */
     }
 }

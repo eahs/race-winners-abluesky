@@ -10,43 +10,33 @@ namespace RaceWinners
     {
         static async Task Main(string[] args)
         {
-            /*
-            * TO DO:
-            * - decide winners
-            * - print it all out nicely
-            */
-            
             DataService ds = new DataService();
  
             // Asynchronously retrieve the group (class) data
             var data = await ds.GetGroupRanksAsync();
 
+            // Get all averages
             double classA = data[0].CalculateAverage();
             double classB = data[1].CalculateAverage();
             double classC = data[2].CalculateAverage();
             double classD = data[3].CalculateAverage();
 
+            // Create lists of averages
             List<double> averages = new List<double> {classA, classB, classC, classD};
             List<double> averagesSorted = new List<double> {classA, classB, classC, classD};
             averagesSorted.Sort();
 
-            /*
-            foreach (double average in averages)
-            {
-                Console.WriteLine(average);
-            }
-            */
-            
             for (int i = 0; i < data.Count; i++)
             {
                 // Combine the ranks to print as a list
                 var ranks = String.Join(", ", data[i].Ranks);
+                
+                // Find the place of this group
                 double place = averagesSorted.IndexOf(averages[i]);
 
+                // Print group and its place
                 Console.WriteLine($"{data[i].Name} - Place #{place + 1} - [{ranks}]");
             }
-
-            //Console.WriteLine(g.CalculateAverage());
         }
     }
 }
