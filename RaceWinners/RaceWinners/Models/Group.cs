@@ -27,30 +27,32 @@ namespace RaceWinners.Models
             {
                 if (rank < 3)
                 {
-                    newRanks.Add(rank);
-                    newRanks.Add(rank);
-                    newRanks.Add(rank);
-                    newRanks.Add(rank);
+                    AddRanks(newRanks, rank, 4);
                 }
                 else if (rank is > 3 and < 16)
                 {
-                    newRanks.Add(rank);
-                    newRanks.Add(rank);
-                    newRanks.Add(rank);
+                    AddRanks(newRanks, rank, 3);
                 }
                 else if (rank is > 15 and < 31)
                 {
-                    newRanks.Add(rank);
-                    newRanks.Add(rank);
+                    AddRanks(newRanks, rank, 2);
                 }
                 else
                 {
-                    newRanks.Add(rank);
+                    AddRanks(newRanks, rank, 1);
                 }
             }
 
             return newRanks.Average();
         }
-        
+
+        // Adds a rank a certain number of times
+        private static void AddRanks(List<int> newRanks, int rank, int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                newRanks.Add(rank);
+            }
+        }
     }
 }
